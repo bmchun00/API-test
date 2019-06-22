@@ -50,7 +50,7 @@ function setPoint() {
     	iconUrl: "./img/pin_1.png",   //핀 이미지
     	iconAnchor: [13,34],  // 오프셋 (핀의 끝이 좌표로 매칭하기 위해 적용)
     })}).addTo(map);
-	var content = "툴팁내용";
+	var content = "그래서누르면이렇게툴팁내용이뜹니다어때요개나이스";
 	marker.bindPopup(mkContent(content),{minWidth:20,offset:[0,-30]});
 }
 
