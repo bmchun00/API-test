@@ -79,7 +79,12 @@ function pointAll() {
 	mkClear();
 	for(var i=0;i<18;i++)
 	{
-		setPoint(i);
+		marker = new L.Marker(new L.LatLng(value[i][0], value[i][1]),{icon: new L.Icon({   // 마커 찍기
+	    	iconUrl: "./img/pin_1.png",   //핀 이미지
+	    	iconAnchor: [13,34],  // 오프셋 (핀의 끝이 좌표로 매칭하기 위해 적용)
+	    })}).addTo(map);
+		var content = value[i][5];
+		marker.bindPopup(mkContent(content),{minWidth:20,offset:[0,-30]});
 	}
 }
 
