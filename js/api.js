@@ -9,8 +9,13 @@ var curOldMapMode = null; //고지도 상태
 var curOpacity = 0.7;
 
 //베이스맵 변경
-function mapChange() {
-	var mapMode = $("#mapMode").val();
+function mapChange1() {
+	var mapMode = $("#mapMode1").val();
+	BaseMapChange(map, eval(mapMode));
+}
+
+function mapChange2() {
+	var mapMode = $("#mapMode2").val();
 	BaseMapChange(map, eval(mapMode));
 }
 
