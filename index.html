@@ -57,26 +57,32 @@ var init = function(){
 </head>
 <body onload="init()">
 	<div style="width: 100%; height: 100px;">
-		<div class="btn-group" role="group" aria-label="위치">
+		<div class="btn-group btn-group-sm" role="group" aria-label="위치">
   		<button type="button" onclick="chk11();" class="btn btn-secondary">정문</button>
   		<button type="button" onclick="chk12();" class="btn btn-secondary">교내</button>
   		<button type="button" onclick="chk13();" class="btn btn-secondary">후문</button>
 		</div>
-		<div class="btn-group" role="group" aria-label="용도">
+		<div class="btn-group btn-group-sm" role="group" aria-label="용도">
   		<button type="button" onclick="chk21();" class="btn btn-secondary">카페</button>
   		<button type="button" onclick="chk22();" class="btn btn-secondary">라운지</button>
 		</div>
-		<div class="btn-group" role="group" aria-label="혼잡도">
+		<div class="btn-group btn-group-sm" role="group" aria-label="혼잡도">
   		<button type="button" onclick="chk31();" class="btn btn-secondary">혼잡</button>
   		<button type="button" onclick="chk32();" class="btn btn-secondary">보통</button>
   		<button type="button" onclick="chk33();" class="btn btn-secondary">원활</button>
 		</div>
+		<div class="btn-group btn-group-sm" role="group" aria-label="검색">
+			<button onclick="search();" class="btn btn-secondary">검색</button>
+		</div>
 	</br>
-		<button onclick="search();" class="btn btn-secondary">검색</button>
-		<button onclick="mkClear();" class="btn btn-secondary">삭제</button>
-		<button onclick="pointAll();" class="btn btn-secondary">모든 장소</button>
+	<div class="btn-group btn-group-sm" role="group" aria-label="모두">
+			<button onclick="mkClear();" class="btn btn-secondary">모두 삭제</button>
+			<button onclick="pointAll();" class="btn btn-secondary">모든 장소</button>
+	</div>
+	<div class="btn-group btn-group-sm" role="group" aria-label="지도">
 		<button id="mapMode1" onclick="mapChange1();" value="L.Dawul.BASEMAP_GEN" class="btn btn-secondary">일반</button>
 		<button id="mapMode2" onclick="mapChange2();" value="L.Dawul.BASEMAP_SATE" class="btn btn-secondary">항공</button>
+	</div>
 	</div>
 	<div id="map_" style="width:100%"></div>
 </body>
