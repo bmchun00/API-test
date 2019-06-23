@@ -48,7 +48,7 @@ function decreOpacity(){
 }
 //value 값 : x좌표, y좌표, 혼잡도, 위치, 용도
 
-var value = new Array( new Array(18), new Array(6) );
+var value = new Array( new Array(20), new Array(6) );
 value[0] = [37.584826, 127.062118,1,0,2,"중앙도서관 라운지"];
 value[1] = [37.588984, 127.061088,1,2,1,"카페리본"];
 value[2] = [37.588672, 127.060788,1,2,1,"카페 꽃갈피"];
@@ -67,6 +67,8 @@ value[14] = [37.583226, 127.054825,1,0,1,"이디야"];
 value[15] = [37.583191, 127.053909,1,0,1,"투썸플레이스"];
 value[16] = [37.583753, 127.053056,1,0,1,"카페 여느일"];
 value[17] = [37.586439, 127.056412,1,0,1,"커피베이"];
+value[18] = [37.583279, 127.054851,1,0,1,"와플스토리"];
+value[19] = [37.583888, 127.053642,1,0,1,"커피에 반하다"];
 
 var chk1 = 0;
 var chk2 = 0;
@@ -107,12 +109,12 @@ function setPoint(x) {
 	marker.bindPopup(mkContent(content),{minWidth:20,offset:[0,-30]});
 }
 
-var marker = new Array(18);
+var marker = new Array(20);
 //모든장소 표현
 function pointAll() {
 	mkClear();
 	map.setView([ 37.583736, 127.060084 ], 10);
-	for(i=0;i<18;i++)
+	for(i=0;i<20;i++)
 	{
 	marker[i] = new L.Marker(new L.LatLng(value[i][0], value[i][1]),{icon: new L.Icon({   // 마커 찍기
 	    iconUrl: "./img/pin_1.png",   //핀 이미지
@@ -127,7 +129,7 @@ function pointAll() {
 function search() {
 	mkClear();
 	map.setView([ 37.583736, 127.060084 ], 10);
-	for(i=0;i<18;i++)
+	for(i=0;i<20;i++)
 	{
 		if(value[i][2]==chk3&&value[i][3]==chk1&&value[i][4]==chk2)
 		{
@@ -169,7 +171,7 @@ function mkContent(content){
 
 //마커 삭제
 function mkClear() {
-	for(i=0;i<18;i++)
+	for(i=0;i<20;i++)
 	{
 	if(marker[i]!=null) {
 		map.removeLayer(marker[i]);
