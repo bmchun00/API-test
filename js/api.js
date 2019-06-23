@@ -63,6 +63,34 @@ value[15] = [37.583191, 127.053909,1,0,1,"투썸플레이스"];
 value[16] = [37.583753, 127.053056,1,0,1,"카페 여느일"];
 value[17] = [37.586439, 127.056412,1,0,1,"커피베이"];
 
+var chk1 = 0;
+var chk2 = 0;
+var chk3 = 0;
+
+function chk11(){
+	chk1 = 1;
+}
+function chk12(){
+	chk1 = 2;
+}
+function chk13(){
+	chk1 = 3;
+}
+function chk21(){
+	chk2 = 1;
+}
+function chk22(){
+	chk2 = 2;
+}
+function chk31(){
+	chk3 = 1;
+}
+function chk32(){
+	chk3 = 2;
+}
+function chk33(){
+	chk3 = 3;
+}
 //마커 표현 및 툴팁 샘플
 function setPoint(x) {
 	mkClear();
@@ -89,6 +117,22 @@ function pointAll() {
 	}
 }
 
+function search() {
+	mkclear();
+	map.setView([ 37.583736, 127.060084 ], 10);
+	for(i=0;i<18;i++)
+	{
+		if(value[i][2]==chk3&&value[i][3]==chk1&&value[i][4]==chk2)
+		{
+			marker = new L.Marker(new L.LatLng(value[i][0], value[i][1]),{icon: new L.Icon({   // 마커 찍기
+		    	iconUrl: "./img/pin_1.png",   //핀 이미지
+		    	iconAnchor: [13,34],  // 오프셋 (핀의 끝이 좌표로 매칭하기 위해 적용)
+		    })}).addTo(map);
+			var content = value[i][5];
+			marker.bindPopup(mkContent(content),{minWidth:20,offset:[0,-30]});
+		}
+	}
+}
 //마커 이미지 변경
 function mkImgChange(mode) {
 	if(marker!=null) {
