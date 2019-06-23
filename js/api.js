@@ -77,6 +77,7 @@ function setPoint(x) {
 //모든장소 표현
 function pointAll() {
 	mkClear();
+	map.setView([ 37.583736, 127.060084 ], 10);
 	for(var i=0;i<18;i++)
 	{
 		marker = new L.Marker(new L.LatLng(value[i][0], value[i][1]),{icon: new L.Icon({   // 마커 찍기
