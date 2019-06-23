@@ -42,11 +42,14 @@ function decreOpacity(){
    setOldMapOpacity(curOpacity);
 }
 
+var value = new Array( new Array(18), new Array(5) );
+value[0] = [37.5118,127.0592,1,2,1];
+
 //마커 표현 및 툴팁 샘플
 function setPoint() {
 	mkClear();
-	map.setView([ 37.5118, 127.0592 ], 10); //지도 위치 이동  (좌표, 지도 레벨)
-	marker = new L.Marker(new L.LatLng(37.5118, 127.0592),{icon: new L.Icon({   // 마커 찍기
+	map.setView([ value[0][0], value[0][1] ], 10); //지도 위치 이동  (좌표, 지도 레벨)
+	marker = new L.Marker(new L.LatLng(value[0][0], value[0][1]),{icon: new L.Icon({   // 마커 찍기
     	iconUrl: "./img/pin_1.png",   //핀 이미지
     	iconAnchor: [13,34],  // 오프셋 (핀의 끝이 좌표로 매칭하기 위해 적용)
     })}).addTo(map);
