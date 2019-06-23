@@ -62,9 +62,10 @@ var init = function(){
 			<option value="L.Dawul.BASEMAP_SATE_CHNB">항공중문번</option>
 	 	</select>
 		<button onclick="pointAll();" style="height: 30px;">모든장소</button>
-		<button onclick="setPoint();" style="height: 30px;">마커표현(어그러니까일단예를들자면코엑스라던가)</button>
-		<button onclick="mkImgChange(1);" style="height: 30px;">마커이미지변경(파랑)</button>
-		<button onclick="mkImgChange(2);" style="height: 30px;">마커이미지변경(주황)</button>
+
+		<input type="radio" name="chk_info" value="정문">정문
+		<input type="radio" name="chk_info" value="교내">교내
+		<input type="radio" name="chk_info" value="후문">후문
 	</div>
 	<div id="map_" style="width:100%"></div>
 </body>
