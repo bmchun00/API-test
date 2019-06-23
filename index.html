@@ -22,9 +22,12 @@ html, body {width: 100%; height: 100%; margin:0px}
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://map.seoul.go.kr/smgis/apps/mapsvr.do?cmd=gisMapCss">
+
 <script type="text/javascript" src="https://map.seoul.go.kr/smgis/apps/mapsvr.do?cmd=gisMapJs&key=ea061e94268b45c0b4ac9859a7b591af"></script>
 <script type="text/javascript" src="./js/api.js"></script>
+<script type="text/javascript" src="./js/jquery-radiocharm.js"></script>
 <script type="text/javascript">
+
 var	map = null;
 var miniMap = null;
 
@@ -58,21 +61,38 @@ var init = function(){
 <body onload="init()">
 	<div style="width: 100%; height: 100px;">
 		<div class="btn-group btn-group-sm" role="group" aria-label="위치">
-  		<button type="button" onclick="chk11();" class="btn btn-secondary">정문</button>
-  		<button type="button" onclick="chk12();" class="btn btn-secondary">교내</button>
-  		<button type="button" onclick="chk13();" class="btn btn-secondary">후문</button>
+			<label class="btn btn-primary">
+  			<input type="radio" name="1 "onclick="chk11();">정문</button>
+			</label>
+			<label class="btn btn-primary">
+  			<input type="radio" name="1 " onclick="chk12();">교내</button>
+			</label>
+			<label class="btn btn-primary">
+  			<input type="radio" name="1 "onclick="chk13();">후문</button>
+			</label>
 		</div>
 		<div class="btn-group btn-group-sm" role="group" aria-label="용도">
-  		<button type="button" onclick="chk21();" class="btn btn-secondary">카페</button>
-  		<button type="button" onclick="chk22();" class="btn btn-secondary">라운지</button>
+			<label class="btn btn-primary">
+  			<input type="radio" name="2 " onclick="chk21();">카페</button>
+			</label>
+			<label class="btn btn-primary">
+  			<input type="radio" name="2 "onclick="chk22();">라운지</button>
+			</label>
 		</div>
+
 		<div class="btn-group btn-group-sm" role="group" aria-label="혼잡도">
-  		<button type="button" onclick="chk31();" class="btn btn-secondary">혼잡</button>
-  		<button type="button" onclick="chk32();" class="btn btn-secondary">보통</button>
-  		<button type="button" onclick="chk33();" class="btn btn-secondary">원활</button>
+			<label class="btn btn-primary">
+  			<input type="radio" name="3 "onclick="chk31();">혼잡</button>
+			</label>
+			<label class="btn btn-primary">
+  			<input type="radio" name="3 " onclick="chk32();">보통</button>
+			</label>
+			<label class="btn btn-primary">
+  			<input type="radio" name="3 "onclick="chk33();">원활</button>
+			</label>
 		</div>
 		<div class="btn-group btn-group-sm" role="group" aria-label="검색">
-			<button onclick="search();" class="btn btn-secondary">검색</button>
+			<button onclick="search();" class="btn btn-warning">검색</button>
 		</div>
 	</br>
 	<div class="btn-group btn-group-sm" role="group" aria-label="모두">
