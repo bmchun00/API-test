@@ -44,7 +44,7 @@ function decreOpacity(){
 //value 값 : x좌표, y좌표, 혼잡도, 위치, 용도
 
 var value = new Array( new Array(18), new Array(6) );
-value[0] = [37.584826, 127.062118,1,1,1,"중앙도서관"];
+value[0] = [37.584826, 127.062118,1,0,2,"중앙도서관 라운지"];
 value[1] = [37.588984, 127.061088,1,2,1,"카페리본"];
 value[2] = [37.588672, 127.060788,1,2,1,"카페 꽃갈피"];
 value[3] = [37.589143, 127.059752,1,2,1,"빵선생"];
@@ -53,11 +53,11 @@ value[5] = [37.585916, 127.060665,1,2,1,"레이앤단"];
 value[6] = [37.586187, 127.059895,1,2,1,"Acid Brew"];
 value[7] = [37.585505, 127.060997,1,2,1,"SsaGaa"];
 value[8] = [37.583736, 127.060084,1,1,1,"학생회관 아느칸카페"];
-value[9] = [37.583169, 127.058651,1,1,1,"21세기관 학생라운지"];
+value[9] = [37.583169, 127.058651,1,1,2,"21세기관 학생라운지"];
 value[10] = [37.582495, 127.059143,1,1,1,"자연과학관 카페비"];
-value[11] = [37.582379, 127.057100,1,1,1,"법학관 RT라운지"];
+value[11] = [37.582379, 127.057100,1,1,2,"법학관 RT라운지"];
 value[12] = [37.583511, 127.056259,1,1,1,"전농관카페"];
-value[13] = [37.583856, 127.055569,1,1,1,"100주년 기념관 도서관"];
+value[13] = [37.583856, 127.055569,1,1,2,"100주년 기념관 도서관"];
 value[14] = [37.583226, 127.054825,1,0,1,"이디야"];
 value[15] = [37.583191, 127.053909,1,0,1,"투썸플레이스"];
 value[16] = [37.583753, 127.053056,1,0,1,"카페 여느일"];
@@ -68,13 +68,13 @@ var chk2 = 0;
 var chk3 = 0;
 
 function chk11(){
-	chk1 = 1;
+	chk1 = 0;
 }
 function chk12(){
-	chk1 = 2;
+	chk1 = 1;
 }
 function chk13(){
-	chk1 = 3;
+	chk1 = 2;
 }
 function chk21(){
 	chk2 = 1;
@@ -102,34 +102,36 @@ function setPoint(x) {
 	marker.bindPopup(mkContent(content),{minWidth:20,offset:[0,-30]});
 }
 
+var marker = new Array(18);
 //모든장소 표현
 function pointAll() {
 	mkClear();
 	map.setView([ 37.583736, 127.060084 ], 10);
-	for(var i=0;i<18;i++)
+	for(i=0;i<18;i++)
 	{
-		marker = new L.Marker(new L.LatLng(value[i][0], value[i][1]),{icon: new L.Icon({   // 마커 찍기
-	    	iconUrl: "./img/pin_1.png",   //핀 이미지
-	    	iconAnchor: [13,34],  // 오프셋 (핀의 끝이 좌표로 매칭하기 위해 적용)
-	    })}).addTo(map);
-		var content = value[i][5];
-		marker.bindPopup(mkContent(content),{minWidth:20,offset:[0,-30]});
+	marker[i] = new L.Marker(new L.LatLng(value[i][0], value[i][1]),{icon: new L.Icon({   // 마커 찍기
+	    iconUrl: "./img/pin_1.png",   //핀 이미지
+	   	iconAnchor: [13,34],  // 오프셋 (핀의 끝이 좌표로 매칭하기 위해 적용)
+	   })}).addTo(map);
+	var content = value[i][5];
+	marker[i].bindPopup(mkContent(content),{minWidth:20,offset:[0,-30]});
 	}
 }
 
+
 function search() {
-	mkclear();
+	mkClear();
 	map.setView([ 37.583736, 127.060084 ], 10);
 	for(i=0;i<18;i++)
 	{
 		if(value[i][2]==chk3&&value[i][3]==chk1&&value[i][4]==chk2)
 		{
-			marker = new L.Marker(new L.LatLng(value[i][0], value[i][1]),{icon: new L.Icon({   // 마커 찍기
+			marker[i] = new L.Marker(new L.LatLng(value[i][0], value[i][1]),{icon: new L.Icon({   // 마커 찍기
 		    	iconUrl: "./img/pin_1.png",   //핀 이미지
 		    	iconAnchor: [13,34],  // 오프셋 (핀의 끝이 좌표로 매칭하기 위해 적용)
 		    })}).addTo(map);
 			var content = value[i][5];
-			marker.bindPopup(mkContent(content),{minWidth:20,offset:[0,-30]});
+			marker[i].bindPopup(mkContent(content),{minWidth:20,offset:[0,-30]});
 		}
 	}
 }
@@ -162,10 +164,13 @@ function mkContent(content){
 
 //마커 삭제
 function mkClear() {
-	if(marker!=null) {
-		map.removeLayer(marker);
-		marker = null;
+	for(i=0;i<18;i++)
+	{
+	if(marker[i]!=null) {
+		map.removeLayer(marker[i]);
+		marker[i] = null;
 	}
+}
 }
 
 
